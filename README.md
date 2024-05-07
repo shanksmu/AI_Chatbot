@@ -23,3 +23,12 @@ pip install -r requirements.txt
 
 ## Download the Llama 2 model
 Follow the instructions present in model folder to download the model
+
+## create .env file
+Create .env file
+1. Copy pinecode credentials
+
+```
+PINECONE_API_KEY = "your key"
+PINECONE_API_ENV = "your env name" (typically default)
+```

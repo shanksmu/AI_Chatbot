@@ -1,6 +1,6 @@
 ## Download the Llama 2 Model 
 
-https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main
+https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/
 
 ##Curl command to download the link
 curl -o llama-2-7b-chat.ggmlv3.q4_0.bin -L https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/resolve/main/llama-2-7b-chat.ggmlv3.q4_0.bin?download=true

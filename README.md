@@ -4,6 +4,8 @@ Using Generative AI to create a Questions Answering Chatbot using Llama 2
 ## Creating a chatbot for custom knowledge base
 The chatbot is trained on medical data and uses LLM to provide answers
 
+## Clone the repository
+
 ## Install the required packages
 1. Create a virtual envioronment
 ```
@@ -18,3 +20,6 @@ source chatbot_venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
+
+## Download the Llama 2 model
+Follow the instructions present in model folder to download the model

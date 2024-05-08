@@ -26,7 +26,7 @@ Follow the instructions present in model folder to download the model
 
 ## create .env file
 Create .env file
-1. Copy pinecode credentials
+1. Add pinecode credentials in the .env file
 
 ```
 PINECONE_API_KEY = "your key"

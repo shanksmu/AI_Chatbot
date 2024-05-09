@@ -32,3 +32,17 @@ Add pinecode credentials in the .env file
 PINECONE_API_KEY = "your key"
 PINECONE_API_ENV = "your env name" (typically default)
 ```
+
+## Run the application
+
+```
+python app.py
+```
+
+## Techstack Used
+
+Language - Python
+Framework - LangChain
+Webserver - Flask
+LLM - Meta Llama2
+Database - Pinecone

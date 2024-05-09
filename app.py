@@ -3,6 +3,8 @@ from src.helper import download_hugging_face_embeddings
 from langchain_pinecone import PineconeVectorStore
 import pinecone
 from langchain.prompts import PromptTemplate
+from langchain_community.llms import LlamaCpp
+from langchain_core.callbacks import CallbackManager, StreamingStdOutCallbackHandler
 from langchain_community.llms import CTransformers
 from langchain.chains import RetrievalQA
 from accelerate import Accelerator
@@ -31,20 +33,19 @@ PROMPT=PromptTemplate(template=prompt_template, input_variables=["context", "que
 
 chain_type_kwargs={"prompt": PROMPT}
 
-accelerator = Accelerator()
+callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 
-config={
-    'max_new_tokens':512,
-     'temperature':0.8,
-     'gpu_layers':50
-      }
+n_gpu_layers = -1  # The number of layers to put on the GPU. The rest will be on the CPU. If you don't know how many layers there are, you can use -1 to move all to GPU.
+n_batch = 512  # Should be between 1 and n_ctx, consider the amount of VRAM in your GPU.
 
-llm=CTransformers(model="/home/sbhardwa/AI_Chatbot/model/llama-2-7b-chat.ggmlv3.q4_0.bin",
-                  model_type="llama",
-                  config=config)
-
-llm, config = accelerator.prepare(llm, config)
-
+# Make sure the model path is correct for your system!
+llm = LlamaCpp(
+    model_path="/home/sbhardwa/AI_Chatbot/model/llama-2-7b-chat.Q5_K_M.gguf",
+    n_gpu_layers=n_gpu_layers,
+    n_batch=n_batch,
+    callback_manager=callback_manager,
+    verbose=False,  # Verbose is required to pass to the callback manager
+)
 
 qa=RetrievalQA.from_chain_type(
     llm=llm, 

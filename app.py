@@ -1,11 +1,9 @@
 from flask import Flask, render_template, jsonify, request
 from src.helper import download_hugging_face_embeddings
 from langchain_pinecone import PineconeVectorStore
-import pinecone
 from langchain.prompts import PromptTemplate
 from langchain_community.llms import LlamaCpp
 from langchain_core.callbacks import CallbackManager, StreamingStdOutCallbackHandler
-from langchain_community.llms import CTransformers
 from langchain.chains import RetrievalQA
 from accelerate import Accelerator
 from dotenv import load_dotenv

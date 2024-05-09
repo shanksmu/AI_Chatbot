@@ -41,8 +41,8 @@ python app.py
 
 ## Techstack Used
 
-Language - Python
-Framework - LangChain
-Webserver - Flask
-LLM - Meta Llama2
-Database - Pinecone
+- Language - Python
+- Framework - LangChain
+- Webserver - Flask
+- LLM - Meta Llama2
+- Database - Pinecone
